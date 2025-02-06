@@ -13,6 +13,7 @@
 //     }
 // }
 // module.exports = UserController;
+// 6/02/2025
 const addData=async (req,res)=>{
     if(req){
         console.log(req.body.name)
