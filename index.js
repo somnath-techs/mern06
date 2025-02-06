@@ -35,15 +35,15 @@
 // })
 // app.get('/',userApi.home)
 // app.get('/profile/:user',userApi.profile)
-const express = require('express')
-const userRouter = require("./router/router")
 require('dotenv').config()
-const bodyParser = require('body-parser')
+const express = require('express')
 const app = express()
-app.set("view engine","ejs")
-app.use(bodyParser.json())
+const userRouter = require("./router/router")
+
+app.use(express.json())
 app.use(express.static('public'))
-app.use(userRouter)
+app.use("/api/v1",userRouter)
+
 const PORT=process.env.SERVER_PORT
 app.listen(PORT,()=>{
     console.log("server is running successfully")
