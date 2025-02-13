@@ -1,21 +1,10 @@
-// const UserController ={
-//     addData:async (req,res)=>{
-
-//     },
-//     getData:async (req,res)=>{
-        
-//     },
-//     updateData:async (req,res)=>{
-
-//     },
-//     deleteData:async (req,res)=>{
-        
-//     }
-// }
-// module.exports = UserController;
-// 6/02/2025
+const user = require('../model/user')
 const addData=async (req,res)=>{
     if(req){
+        const users = new user({
+            fullname:"Saswata Roy"
+        })
+        await users.save()
         console.log(req.body.name)
         console.log(req.params.user)
     }
@@ -30,7 +19,6 @@ const updateData=async (req,res)=>{
 const deleteData=async (req,res)=>{
     
 }
-
 module.exports = {
     addData,
     getData,

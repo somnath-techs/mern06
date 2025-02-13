@@ -23,7 +23,9 @@ const UserController = require('../controller/UserController');
 
 const router = express.Router();
 
-router.route('/add-data/:user').post(UserController.addData)
+router.route('/add-data').post(UserController.addData)
 router.route('/get-data').get(UserController.getData)
+router.route('/update-data/:id').put(UserController.getData)
+router.route('/delete-data/:id').delete(UserController.getData)
 
 module.exports = router

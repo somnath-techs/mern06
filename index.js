@@ -37,16 +37,19 @@
 // app.get('/profile/:user',userApi.profile)
 require('dotenv').config()
 const express = require('express')
-const app = express()
 const userRouter = require("./router/router")
+const connDB = require("./config/db")
 
+const app = express()
 app.use(express.json())
 app.use(express.static('public'))
 app.use("/api/v1",userRouter)
 
 const PORT=process.env.SERVER_PORT
-app.listen(PORT,()=>{
-    console.log("server is running successfully")
-    console.log(`server is running on http://localhost:${PORT}/`)
+connDB().then(()=>{
+    app.listen(PORT,()=>{
+        console.log(`server is running on http://localhost:${PORT}/`)
+    })
 })
+
 
