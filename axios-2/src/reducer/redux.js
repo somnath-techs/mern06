@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const dataSclice = createSlice({
    name:"dataset",
-   initialState:[],
+   initialState:{
+    data:[]
+   },
   reducers:{
     setData(state,action){
       return{

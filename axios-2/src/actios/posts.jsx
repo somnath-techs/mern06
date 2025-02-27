@@ -12,3 +12,6 @@ export const AddData = (data) =>{
 export const DeletePosts = () =>{
     return api.delete("/posts/1")
 }
+export const GetDataFromBackend = () =>{
+    return api.get("/get-data")
+}

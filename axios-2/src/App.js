@@ -1,47 +1,48 @@
 import { useState, useEffect } from "react";
 import { GetPosts,AddData,DeletePosts, UpdatePosts, } from "./actios/posts";
+import Paginatios from "./components/Paginatios";
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpenUpdate, setModalOpenUpdate] = useState(false);
-  const [data,setData]=useState({})
-  const [Id,setId]=useState(0)
+  // const [posts, setPosts] = useState([]);
+  // const [modalOpen, setModalOpen] = useState(false);
+  // const [modalOpenUpdate, setModalOpenUpdate] = useState(false);
+  // const [data,setData]=useState({})
+  // const [Id,setId]=useState(0)
 
-  const handleChange = (e) =>{
-   const name = e.target.name;
-   const value = e.target.value;
-   setData(prev=>({...prev,[name]:value}))
-  }
+  // const handleChange = (e) =>{
+  //  const name = e.target.name;
+  //  const value = e.target.value;
+  //  setData(prev=>({...prev,[name]:value}))
+  // }
  
-  const handleSubmit = async(e) =>{
-    e.preventDefault();
-    const responce = await AddData(data);
-    console.log(responce);
-  }
-  const handleUpdate = async(e) =>{
-    e.preventDefault();
-    const responce = await UpdatePosts(data,Id);
-    console.log(responce);
-  }
+  // const handleSubmit = async(e) =>{
+  //   e.preventDefault();
+  //   const responce = await AddData(data);
+  //   console.log(responce);
+  // }
+  // const handleUpdate = async(e) =>{
+  //   e.preventDefault();
+  //   const responce = await UpdatePosts(data,Id);
+  //   console.log(responce);
+  // }
 
-  const GetData = async () => {
-    const response = await GetPosts();
-    console.log(response);
-    setPosts(response.data);
-  };
-  const DeleteMyData = async () => {
-     const response = await DeletePosts();
-     console.log(response);
-  }
+  // const GetData = async () => {
+  //   const response = await GetPosts();
+  //   console.log(response);
+  //   setPosts(response.data);
+  // };
+  // const DeleteMyData = async () => {
+  //    const response = await DeletePosts();
+  //    console.log(response);
+  // }
 
-  useEffect(() => {
-    GetData();
-  }, []);
+  // useEffect(() => {
+  //   GetData();
+  // }, []);
 
   return (
     <>
-      <table className="table">
+      {/* <table className="table">
         <thead>
           <tr>
             <th>
@@ -91,7 +92,7 @@ function App() {
       </button>
 
       {/* This My Modal */}
-      <div className={`modal ${modalOpen ? "is-active" : ""}`}>
+      {/* <div className={`modal ${modalOpen ? "is-active" : ""}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
         <h1 className="title">Add Data</h1>
@@ -144,7 +145,7 @@ function App() {
         ></button>
       </div>
       {/* This is my Update Modal */}
-      <div className={`modal ${modalOpenUpdate ? "is-active" : ""}`}>
+     {/* <div className={`modal ${modalOpenUpdate ? "is-active" : ""}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
          <h1 className="title">Update</h1>
@@ -195,7 +196,9 @@ function App() {
           aria-label="close"
           onClick={() => setModalOpenUpdate(false)}
         ></button>
-      </div>
+      </div>  */} 
+      <h1>Pagination</h1>
+      <Paginatios/>
     </>
   );
 }

@@ -4,25 +4,11 @@ import { setData } from './reducer/redux'
 import {GetPosts} from './actios/posts'
 
 const App1 = () => {
-    const data = useSelector(state => state.Reducer)
-    const dispatch = useDispatch()
+    console.log('App1')
 
-    const GetMyData = async () => {
-      try {
-        const res = await GetPosts()
-        dispatch(setData(res.data))
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    
-useEffect(()=>{
-  GetMyData()
-},[])
 
-    console.log(data)
   return (
-    <div>App1</div>
+    <div>App1 is this</div>
   )
 }
 
