@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import { GetPosts,AddData,DeletePosts, UpdatePosts, } from "./actios/posts";
 import Paginatios from "./components/Paginatios";
-
+import { Route, Routes,BrowserRouter } from "react-router-dom";
+import AddDataTOForm  from "./components/AddData";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Products from "./pages/Products";
+import Admin from "./pages/Admin";
 function App() {
+  
   // const [posts, setPosts] = useState([]);
   // const [modalOpen, setModalOpen] = useState(false);
   // const [modalOpenUpdate, setModalOpenUpdate] = useState(false);
@@ -42,6 +49,16 @@ function App() {
 
   return (
     <>
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/add-data" element={<AddDataTOForm/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/admin" element={<Admin/>} />
+      </Routes>
+     </BrowserRouter>
       {/* <table className="table">
         <thead>
           <tr>
@@ -197,8 +214,8 @@ function App() {
           onClick={() => setModalOpenUpdate(false)}
         ></button>
       </div>  */} 
-      <h1>Pagination</h1>
-      <Paginatios/>
+      {/* <h1>Pagination</h1> */}
+      {/* <Paginatios/> */}
     </>
   );
 }
